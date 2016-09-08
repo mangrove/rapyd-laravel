@@ -555,7 +555,9 @@ abstract class Field extends Widget
                             $this->relation->attach($d, $callable($d));
                         }
                     } elseif (is_array($this->extra_attributes)) {
-                        $this->relation->attach($new_data, $this->extra_attributes);
+                        foreach ($new_data as $d) {
+                            $this->relation->attach($d, $this->extra_attributes);
+                        }
                     }
 
                     break;
